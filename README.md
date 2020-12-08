@@ -1,2 +1,3 @@
-# Unicorp.DataTypesLib.Swift
-Library with usefull methods for basic data types
+# Unicorp.DataTypesLibrary
+
+A description of this package.
