@@ -3,15 +3,17 @@ import Foundation
 extension String {
 
   //----------------------------------------------------------------------------
-  // MARK: - Regex
+  // MARK: - Match
   //----------------------------------------------------------------------------
 
   /// Return all substring of the current string that matches the given `regex`
-  func matches(regex: String,
-               options: NSRegularExpression.Options = []) throws -> [String] {
-    let regex = try NSRegularExpression(pattern: regex, options: options)
-
+  public func matches(
+    regex: String,
+    options: NSRegularExpression.Options = []
+  ) throws -> [String] {
     let string = self as NSString
+
+    let regex = try NSRegularExpression(pattern: regex, options: options)
     let range = NSRange(location: 0, length: self.count)
     let matches = regex.matches(in: self, range: range)
 
@@ -21,12 +23,13 @@ extension String {
   /// Return all substring of the current string that matches the given `regex` substring request
   /// As example, (\d+)(.*)$ will return several substring for the different parts defined in the regex.
   /// The first value of the string array is the global match, and the next ones are the substring of the match
-  func substringMatches(
+  public func substringMatches(
     regex: String,
     options: NSRegularExpression.Options = []
   ) throws -> [[String]] {
-    let regex = try NSRegularExpression(pattern: regex, options: options)
     let string = self as NSString
+
+    let regex = try NSRegularExpression(pattern: regex, options: options)
     let range = NSRange(location: 0, length: self.count)
     let matches = regex.matches(in: self, range: range)
 
@@ -44,15 +47,11 @@ extension String {
     }
   }
 
-  /// Check if the current string match at least in part the given `regex`
-  func contains(regex: String,
-                options: NSRegularExpression.Options = []) throws -> Bool {
-    return try matches(regex: regex, options: options).count > 0
-  }
-
   /// Find the first part of the current string that match the given `regex`
-  func firstMatch(regex: String,
-                  options: NSRegularExpression.Options = []) throws -> String? {
+  public func firstMatch(
+    regex: String,
+    options: NSRegularExpression.Options = []
+  ) throws -> String? {
     let regex = try NSRegularExpression(pattern: regex, options: options)
 
     let string = self as NSString
@@ -64,4 +63,17 @@ extension String {
 
     return string.substring(with: firstMatch.range)
   }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Contains
+  //----------------------------------------------------------------------------
+
+  /// Check if the current string match at least in part the given `regex`
+  public func contains(
+    regex: String,
+    options: NSRegularExpression.Options = []
+  ) throws -> Bool {
+    return try matches(regex: regex, options: options).count > 0
+  }
+
 }
