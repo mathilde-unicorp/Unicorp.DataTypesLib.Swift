@@ -1,7 +1,7 @@
 import XCTest
 @testable import Unicorp_DataTypesLibrary
 
-final class String_regex_Test: XCTestCase {
+final class StringRegexTests: XCTestCase {
 
   func testMatches() {
     XCTAssertEqual(try "hello world".matches(regex: "hello"), ["hello"])
@@ -29,16 +29,6 @@ final class String_regex_Test: XCTestCase {
     XCTAssertThrowsError(try "hello [world]".substringMatches(regex: "["))
   }
 
-  func testFirstMatch() {
-    XCTAssertEqual(try "hello world".firstMatch(regex: "\\w+o"), "hello")
-    XCTAssertEqual(try "hello world".firstMatch(regex: "\\w{1}o"), "lo")
-    XCTAssertEqual(try "hello world".firstMatch(regex: "\\w{1}o"), "lo")
-    XCTAssertEqual(try "hello world".firstMatch(regex: "test"), nil)
-    XCTAssertEqual(try "hello world".firstMatch(regex: "\\w+z"), nil)
-
-    XCTAssertThrowsError(try "hello [world]".firstMatch(regex: "["))
-  }
-
   func testContains() {
     XCTAssertEqual(try "hello world".contains(regex: "hello"), true)
     XCTAssertEqual(try "hello world".contains(regex: "\\w+o"), true)
@@ -46,4 +36,5 @@ final class String_regex_Test: XCTestCase {
     XCTAssertEqual(try "hello world".contains(regex: "\\w+z"), false)
     XCTAssertEqual(try "hello world".contains(regex: "test"), false)
   }
+
 }

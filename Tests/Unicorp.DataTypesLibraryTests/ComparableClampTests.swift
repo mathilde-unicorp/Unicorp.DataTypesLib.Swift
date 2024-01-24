@@ -1,8 +1,8 @@
 import XCTest
 @testable import Unicorp_DataTypesLibrary
 
-final class Comparable_clamp_Test: XCTestCase {
-  
+final class ComparableClampTests: XCTestCase {
+
   func testClamped() {
     XCTAssertEqual(3.clamped(min: 0, max: 10), 3)
     XCTAssertEqual(11.clamped(min: 0, max: 10), 10)

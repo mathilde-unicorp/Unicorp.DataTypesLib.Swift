@@ -1,7 +1,7 @@
 import XCTest
 @testable import Unicorp_DataTypesLibrary
 
-final class IntegerLiteralType_is_Test: XCTestCase {
+final class IntegerLiteralTypeIsTest: XCTestCase {
 
   func testIsOdd() {
     XCTAssertEqual(1.isOdd, true)

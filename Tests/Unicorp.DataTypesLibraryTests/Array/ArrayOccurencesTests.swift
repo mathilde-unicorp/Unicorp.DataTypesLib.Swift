@@ -1,9 +1,9 @@
 import XCTest
 @testable import Unicorp_DataTypesLibrary
 
-final class String_occurences_Test: XCTestCase {
+final class ArrayOccurencesTest: XCTestCase {
 
-  func testItemsCountOccurences() {
+  func testItemsCountOccurences_IntArray() {
     XCTAssertEqual([].itemsOccurencesCount, [:])
     XCTAssertEqual(
       [0, 1, 2, 3, 2].itemsOccurencesCount,
@@ -14,7 +14,7 @@ final class String_occurences_Test: XCTestCase {
     )
   }
 
-  func testStringItemsCountOccurences() {
+  func testItemsCountOccurences_String() {
     XCTAssertEqual("".itemsOccurencesCount, [:])
     XCTAssertEqual("a".itemsOccurencesCount, ["a": 1])
     XCTAssertEqual("aaaaa".itemsOccurencesCount, ["a": 5])
