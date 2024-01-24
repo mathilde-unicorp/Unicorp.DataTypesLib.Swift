@@ -7,4 +7,9 @@ extension IntegerLiteralType {
 
     /// Returns true if the current number is an odd number
     public var isOdd: Bool { self % 2 != 0 }
+
+    /// Convert the number to a readable string
+    public var toString: String {
+        return String(self)
+    }
 }
