@@ -5,12 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "Unicorp.DataTypesLibrary",
-    platforms: [.iOS("17.0"), .macOS("13.0")],
+    platforms: [
+        .iOS("17.0"),
+        .macOS("13.0")
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Unicorp.DataTypesLibrary",
-            targets: ["Unicorp.DataTypesLibrary"]),
+            targets: ["Unicorp.DataTypesLibrary"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,6 +27,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "Unicorp.DataTypesLibraryTests",
-            dependencies: ["Unicorp.DataTypesLibrary"]),
+            dependencies: ["Unicorp.DataTypesLibrary"])
     ]
 )

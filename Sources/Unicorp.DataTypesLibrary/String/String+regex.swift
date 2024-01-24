@@ -2,16 +2,16 @@ import Foundation
 
 extension String {
 
-    //----------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
     // MARK: - Regex
-    //----------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     /// Return all substring of the current string that matches the given `regex`
     func matches(regex: String) throws -> [String] {
         let regex = try Regex(regex)
         let matches = self.ranges(of: regex)
 
-        return matches.map() { String(self[$0]) }
+        return matches.map { String(self[$0]) }
     }
 
     /// Check if the current string match at least in part the given `regex`
@@ -31,11 +31,11 @@ extension String {
         let range = NSRange(location: 0, length: self.count)
         let matches = regex.matches(in: self, range: range)
 
-        return matches.map() { match -> [String] in
+        return matches.map { match -> [String] in
             var submatches = [String]()
 
-            for i in 0 ..< match.numberOfRanges {
-                let range = match.range(at: i)
+            for index in 0 ..< match.numberOfRanges {
+                let range = match.range(at: index)
                 guard range.location != NSNotFound else { break }
 
                 submatches.append(string.substring(with: range))
