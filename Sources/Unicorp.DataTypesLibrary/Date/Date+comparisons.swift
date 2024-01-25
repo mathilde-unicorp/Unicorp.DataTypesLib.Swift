@@ -11,39 +11,39 @@ extension Date {
 
     // MARK: - Overloads
 
-    static func > (rhs: Date, lhs: Date) -> Bool {
+    public static func > (rhs: Date, lhs: Date) -> Bool {
         return rhs.compare(lhs) == .orderedDescending
     }
 
-    static func < (rhs: Date, lhs: Date) -> Bool {
+    public static func < (rhs: Date, lhs: Date) -> Bool {
         return rhs.compare(lhs) == .orderedAscending
     }
 
-    static func == (rhs: Date, lhs: Date) -> Bool {
+    public static func == (rhs: Date, lhs: Date) -> Bool {
         return rhs.compare(lhs) == .orderedSame
     }
 
     // MARK: - Relations in time
 
     /// Is the current date in the past (compared to actual date)
-    var isOutdated: Bool {
+    public var isOutdated: Bool {
         return Date() > self
     }
 
     /// Is the current date in the past compared to the given date
-    func isBefore(_ date: Date) -> Bool {
+    public func isBefore(_ date: Date) -> Bool {
         return self < date
     }
 
     /// Is the current date in the future compared to the given date
-    func isAfter(_ date: Date) -> Bool {
+    public func isAfter(_ date: Date) -> Bool {
         return self > date
     }
 
     // MARK: - Date distances
 
     /// Compute distance between two date for a given components
-    func distance(
+    public func distance(
         from date: Date,
         only component: Calendar.Component,
         calendar: Calendar = .current
@@ -54,7 +54,7 @@ extension Date {
     }
 
     /// Check if a component value is the same between two dates
-    func hasSameDateComponent(
+    public func hasSameDateComponent(
         _ component: Calendar.Component,
         as date: Date
     ) -> Bool {

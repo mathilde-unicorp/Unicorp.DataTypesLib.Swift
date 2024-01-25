@@ -7,7 +7,7 @@ extension String {
     // -------------------------------------------------------------------------
 
     /// Return all substring of the current string that matches the given `regex`
-    func matches(regex: String) throws -> [String] {
+    public func matches(regex: String) throws -> [String] {
         let regex = try Regex(regex)
         let matches = self.ranges(of: regex)
 
@@ -15,14 +15,14 @@ extension String {
     }
 
     /// Check if the current string match at least in part the given `regex`
-    func contains(regex: String) throws -> Bool {
+    public func contains(regex: String) throws -> Bool {
         self.contains(try Regex(regex))
     }
 
     /// Return all substring of the current string that matches the given `regex` substring request
     /// As example, (\d+)(.*)$ will return several substring for the different parts defined in the regex.
     /// The first value of the string array is the global match, and the next ones are the substring of the match
-    func substringMatches(
+    public func substringMatches(
         regex: String,
         options: NSRegularExpression.Options = []
     ) throws -> [[String]] {

@@ -8,17 +8,12 @@
 import Foundation
 
 extension Decodable {
-    func decode<T>(_ type: T.Type, from dictionary: [String: Any]) -> T? where T: Decodable {
-        do {
-            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .fragmentsAllowed)
-            return try JSONDecoder().decode(type, from: data)
-        } catch {
-            log.error("Decode error: \(error)")
-            return nil
-        }
+    func decode<T>(_ type: T.Type, from dictionary: [String: Any]) throws -> T? where T: Decodable {
+        let data = try JSONSerialization.data(withJSONObject: dictionary, options: .fragmentsAllowed)
+        return try JSONDecoder().decode(type, from: data)
     }
 
-    func decode<T>(from dictionary: [String: Any]) -> T? where T: Decodable {
-        return decode(T.self, from: dictionary)
+    func decode<T>(from dictionary: [String: Any]) throws -> T? where T: Decodable {
+        return try decode(T.self, from: dictionary)
     }
 }

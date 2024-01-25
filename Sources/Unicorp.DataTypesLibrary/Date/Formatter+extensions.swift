@@ -15,14 +15,14 @@ extension Formatter {
     // MARK: ISO formatters
 
     /// yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
-    static let iso8601withFractionalSeconds: ISO8601DateFormatter = {
+    public static let iso8601withFractionalSeconds: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         return formatter
     }()
 
     /// yyyy-MM-dd'T'HH:mm:ss'Z'
-    static let iso8601: ISO8601DateFormatter = {
+    public static let iso8601: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime]
         return formatter
@@ -31,7 +31,7 @@ extension Formatter {
     // MARK: - Full Date Formatters
 
     /// yyyy-MM-dd HH:mm:ss  (2023-01-01 23:42:02)
-    static let yearMonthDayHourMinutesSeconds: ISO8601DateFormatter = {
+    public static let yearMonthDayHourMinutesSeconds: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withSpaceBetweenDateAndTime]
         formatter.formatOptions.remove(.withTimeZone)
@@ -39,7 +39,7 @@ extension Formatter {
     }()
 
     /// yyyy-MM-dd HH:mm (2023-01-01 23:42)
-    static let yearMonthDayHourMinutes: DateFormatter = {
+    public static let yearMonthDayHourMinutes: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = .current
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -49,7 +49,7 @@ extension Formatter {
     // MARK: - Partial Dates
 
     /// HH:mm (23:42)
-    static let hourMinutes: DateFormatter = {
+    public static let hourMinutes: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = .current
         formatter.dateFormat = "HH:mm"
@@ -57,7 +57,7 @@ extension Formatter {
     }()
 
     /// dd/MM (01/01)
-    static let dayMonth: DateFormatter = {
+    public static let dayMonth: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = .current
         formatter.dateFormat = "dd/MM"

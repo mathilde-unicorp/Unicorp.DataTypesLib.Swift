@@ -11,7 +11,7 @@ import Foundation
 extension Array {
 
     /// Returns true if the array contains at least one element
-    var isNotEmpty: Bool {
+    public var isNotEmpty: Bool {
         return !isEmpty
     }
 
@@ -22,14 +22,14 @@ extension Array {
     /// Filter the array by removing all elements filling the condition
     ///
     /// e.g: ["", "hello", "world"].filterWithout { $0.isEmpty } ---> ["hello", "world"]
-    func filterWithout(_ condition: (Element) -> Bool) -> [Element] {
+    public func filterWithout(_ condition: (Element) -> Bool) -> [Element] {
         return filter { !condition($0) }
     }
 }
 
 extension Array where Element: Equatable {
     /// Returns a Boolean value indicating whether the sequence contains an element that is equal to the `element` parameter.
-    func contains(_ element: Element) -> Bool {
+    public func contains(_ element: Element) -> Bool {
         return self.contains(where: { $0 == element })
     }
 }

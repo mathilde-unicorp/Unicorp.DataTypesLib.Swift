@@ -10,7 +10,7 @@ import Foundation
 extension Data {
 
     /// Return a readable string of a json data object
-    var jsonPrettyPrintDescription: String? {
+    public var jsonPrettyPrintDescription: String? {
         if let object = try? JSONSerialization.jsonObject(with: self, options: []),
            let data2 = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]) {
             let prettyPrintedString = NSString(data: data2, encoding: String.Encoding.utf8.rawValue)
@@ -20,14 +20,9 @@ extension Data {
     }
 
     /// Decode an object to a `Decodable` object
-    func decode<T: Decodable>(
+    public func decode<T: Decodable>(
         decoder: JSONDecoder = JSONDecoder()
     ) throws -> T {
-        do {
-            let object = try decoder.decode(T.self, from: self)
-            return object
-        } catch {
-            throw error
-        }
+        return try decoder.decode(T.self, from: self)
     }
 }
