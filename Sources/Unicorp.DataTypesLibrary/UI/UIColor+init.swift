@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 extension UIColor {
@@ -58,3 +60,4 @@ extension UIColor {
         self.init(cgColor: UIColor.black.cgColor)
     }
 }
+#endif

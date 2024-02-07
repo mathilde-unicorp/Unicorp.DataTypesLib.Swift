@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
-import UIKit
 
+#if canImport(UIKit)
+import UIKit
 
 extension Color {
 
@@ -92,7 +93,5 @@ extension Color {
     public static let darkText = UIColor.darkText.swiftUiColor
     /// The nonadaptable system color for text on a dark background.
     public static let lightText = UIColor.lightText.swiftUiColor
-
-
-
 }
+#endif
