@@ -18,6 +18,11 @@ extension String {
         return Int(self)
     }
 
+    /// Convert current string to a Bool value or nil if it's not a valid Bool
+    public var toBool: Bool? {
+        return Bool(self)
+    }
+
     /// Convert current string to a Float value, or returns null if it's not a valid Float.
     public var toFloat: Float? {
         let floatReadable = self.replacingOccurrences(of: ",", with: ".")

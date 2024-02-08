@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -16,3 +18,4 @@ extension UIColor {
         return Color(self)
     }
 }
+#endif
