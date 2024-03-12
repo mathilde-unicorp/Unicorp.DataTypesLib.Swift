@@ -9,7 +9,7 @@ import Foundation
 
 extension Optional {
 
-    /// Implementation of the `optional.let { ... }` from Kotlin
+    /// Implementation of the `optional?.let { ... }` from Kotlin
     ///
     /// Instead of doing this long and suffering kind of conditions:
     /// ```
@@ -26,7 +26,7 @@ extension Optional {
     /// let myValue = optionalStringValue.let { Float($0) } ?? 0.0
     /// ```
     ///
-    public func `let`<NewWrapped>(completion: @escaping (_ value: Wrapped) -> NewWrapped) -> NewWrapped? {
+    func `let`<NewWrapped>(completion: @escaping (_ value: Wrapped) -> NewWrapped) -> NewWrapped? {
         switch self {
         case .none:
             return nil
