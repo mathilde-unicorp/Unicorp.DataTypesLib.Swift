@@ -32,4 +32,20 @@ extension Array where Element: Equatable {
     public func contains(_ element: Element) -> Bool {
         return self.contains(where: { $0 == element })
     }
+
+    // -------------------------------------------------------------------------
+    // MARK: - Mutating methods
+    // -------------------------------------------------------------------------
+
+    /// Toggle a member into the list
+    /// If the member is present in the list, remove it
+    /// If the member is not in the list, add it
+    public mutating func toggle(element: Element) {
+        if self.contains(where: { $0 == element }) {
+            self.removeAll(where: { $0 == element })
+        } else {
+            self.append(element)
+        }
+    }
+
 }
