@@ -33,6 +33,15 @@ extension Array where Element: Equatable {
         return self.contains(where: { $0 == element })
     }
 
+    /// Merge two array together without duplicated items
+    public func merge(with array: [Element]) -> [Element] {
+        return array.reduce(into: self, { result, item in
+            if !result.contains(item) {
+                result.append(item)
+            }
+        })
+    }
+
     // -------------------------------------------------------------------------
     // MARK: - Mutating methods
     // -------------------------------------------------------------------------
