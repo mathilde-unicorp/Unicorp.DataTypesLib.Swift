@@ -34,12 +34,21 @@ extension Array where Element: Equatable {
     }
 
     /// Merge two array together without duplicated items
-    public func merge(with array: [Element]) -> [Element] {
+    public func merged(with array: [Element]) -> [Element] {
         return array.reduce(into: self, { result, item in
             if !result.contains(item) {
                 result.append(item)
             }
         })
+    }
+
+    /// Split an array into an array of array where each piece of the given `size`
+    public func chunked(into size: Int) -> [[Element]] {
+        guard size != 0 else { return [] }
+
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
     }
 
     // -------------------------------------------------------------------------

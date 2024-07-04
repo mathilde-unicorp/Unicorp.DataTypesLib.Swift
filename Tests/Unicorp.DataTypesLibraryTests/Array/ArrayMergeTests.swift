@@ -13,7 +13,7 @@ final class ArrayMergeTests: XCTestCase {
         let array1 = [1, 2]
         let array2 = [3, 4]
 
-        let mergedArray = array1.merge(with: array2)
+        let mergedArray = array1.merged(with: array2)
 
         XCTAssertEqual(mergedArray, [1, 2, 3, 4])
 
@@ -26,7 +26,7 @@ final class ArrayMergeTests: XCTestCase {
         let array1 = [1, 2]
         let array2 = [2, 3, 4]
 
-        let mergedArray = array1.merge(with: array2)
+        let mergedArray = array1.merged(with: array2)
 
         XCTAssertEqual(mergedArray, [1, 2, 3, 4])
     }
@@ -35,7 +35,7 @@ final class ArrayMergeTests: XCTestCase {
         let array1: [Int] = []
         let array2 = [3, 4]
 
-        let mergedArray = array1.merge(with: array2)
+        let mergedArray = array1.merged(with: array2)
 
         XCTAssertEqual(mergedArray, [3, 4])
     }
@@ -44,7 +44,7 @@ final class ArrayMergeTests: XCTestCase {
         let array1: [Int] = []
         let array2: [Int] = []
 
-        let mergedArray = array1.merge(with: array2)
+        let mergedArray = array1.merged(with: array2)
 
         XCTAssertEqual(mergedArray, [])
     }
