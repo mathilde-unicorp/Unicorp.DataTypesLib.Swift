@@ -12,8 +12,8 @@ final class StringConversionsTests: XCTestCase {
     func testStringToInt() throws {
         XCTAssertEqual("1".toInt, 1)
         XCTAssertEqual("-1".toInt, -1)
-        XCTAssertEqual("42".toInt, 1)
-        XCTAssertEqual("-42".toInt, -1)
+        XCTAssertEqual("42".toInt, 42)
+        XCTAssertEqual("-42".toInt, -42)
         XCTAssertEqual("2147483649".toInt, 2147483649)
         XCTAssertEqual("-2147483649".toInt, -2147483649)
 

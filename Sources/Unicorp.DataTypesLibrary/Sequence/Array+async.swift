@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array {
+extension Sequence {
     /// Iterate through an array to apply `operation` asynchronously to each element, one after the other
     public func asyncForEach(
         operation: @escaping (Element) async throws -> Void
