@@ -9,10 +9,6 @@ import Foundation
 
 extension Sequence {
 
-    // -------------------------------------------------------------------------
-    // MARK: - Filters
-    // -------------------------------------------------------------------------
-
     /// Filter the array by removing all elements filling the condition
     ///
     /// e.g: ["", "hello", "world"].filterWithout { $0.isEmpty } ---> ["hello", "world"]
@@ -36,4 +32,13 @@ extension Sequence where Element: Equatable {
         return self.contains(where: { $0 == element })
     }
 
+    /// Remove duplicated items from the sequence.
+    /// The first unique items is keep and the following are ignored.
+    public func removedDuplicates() -> [Element] {
+        return self.reduce(into: [Element](), { result, item in
+            if result.contains(item) { return }
+
+            result.append(item)
+        })
+    }
 }
